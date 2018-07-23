@@ -18,7 +18,7 @@ describe('Router: App', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [    RouterTestingModule.withRoutes(routes)],
+      imports: [RouterTestingModule.withRoutes(routes)],
       declarations: [
         HomeComponent,
         SearchComponent,
@@ -51,7 +51,7 @@ describe('Router: App', () => {
   }));
 
   it('navigate to "search" takes you to /search', fakeAsync(() => {
-    router.navigate(['/search']);
+    router.navigate(['search']);
     tick(50);
     expect(location.path()).toBe('/search');
   }));
