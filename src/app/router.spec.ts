@@ -18,7 +18,7 @@ describe('Router: App', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule.withRoutes(routes)],
+      imports: [    RouterTestingModule.withRoutes(routes)],
       declarations: [
         HomeComponent,
         SearchComponent,
@@ -30,7 +30,6 @@ describe('Router: App', () => {
     location = TestBed.get(Location);
 
     fixture = TestBed.createComponent(AppComponent);
-    // fixture.detectChanges();
     router.initialNavigation();
   });
 
@@ -45,14 +44,21 @@ describe('Router: App', () => {
   }));
 
   it('navigate to "" redirects you to /home', fakeAsync(() => {
-    router.navigate(['']);
-    tick(50);
-    expect(location.path()).toBe('/home');
+    // router.navigate(['']);
+    // tick(50);
+    // let paths = location.path();
+    // console.log("paths>>>>>>>"+paths);
+    // expect(paths).toBe('/home');
+    router.navigate([''])
+        .then(() => {
+          expect(router.url).toEqual('/home');
+        });
   }));
 
   it('navigate to "search" takes you to /search', fakeAsync(() => {
-    router.navigate(['search']);
-    tick(50);
-    expect(location.path()).toBe('/search');
+    router.navigate(['search'])
+        .then(() => {
+          expect(router.url).toEqual('/search');
+        });
   }));
 });
